@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='boggle.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    
+    <table>
+    {% for row in board %}
+        <tr>
+            {% for col in row %}
+                <td>{{col}}</td>
+            {% endfor %}
+         </tr>
+    {% endfor %}
+    </table>
+
+    <form action='/check-answer'>
+        <input type="text" id="answer" name="answer" placeholder="make a guess">
+        <input type="submit" id="submit">
+    </form>
+
+    {# this doesn't work... can't access session data as list type in template? #}
+
+    {# <p>From session storage:</p>
+    <table>
+    {% for row in {{session['current_board']}} %}
+        <tr>
+            {% for col in row %}
+                <td>{{col}}</td>
+            {% endfor %}
+         </tr>
+    {% endfor %}
+    </table> #}
+
+    {# But we can still print the list when called directly #}
+   {# <p>Accessing session directly:</p>
+   <p>{{session['current_board']}}</p> #}
+{#    
+   {% if guess %}
+   <p>Your guess: <b>{{guess}}</b></p>
+   {% endif %} #}
+   
+   {# CSS FILE LOCATION {{ url_for('static', filename='boggle.css') }} #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='boggle.js') }}"></script>
 </body>
 </html>
