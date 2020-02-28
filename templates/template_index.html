@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='boggle.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>B O G G L E</title>
 </head>
 <body>
     <table>
@@ -17,10 +17,16 @@
     {% endfor %}
     </table>
 
-    <form action='/check-answer'>
+    <form id="submit-guess">
         <input type="text" id="answer" name="answer" placeholder="make a guess">
         <input type="submit" id="submit">
     </form>
+
+    <p id="your-guess-line">Your Guess: <span id="your-guess"></span></p>
+    <p id="guess-result"></p>
+    <p id="score-line">Score: <span id="score"></span>
+
+    <p><button>New Game</button></p>
 
     {# this doesn't work... can't access session data as list type in template? #}
 
