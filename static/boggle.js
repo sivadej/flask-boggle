@@ -2,11 +2,17 @@ document.getElementById('submit').addEventListener('click', function (e) {
     e.preventDefault();
 });
 
+// TODO: store correctly submitted answers for duplicate checking
+// TODO: add game timer
+// TODO: add reset functionality
+
 $('#your-guess-line').hide();
 $('#score-line').hide();
 $('#answer').focus();
 let score = 0;
 
+// send input to server, update results
+// TODO: Validate input
 $('#submit').click(function () {
     $('#your-guess-line').show();
     $('#score-line').show();
